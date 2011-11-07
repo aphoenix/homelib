@@ -17,6 +17,7 @@ like to include moving forward to get it to a place where it would be a useful
 tool for general consumption.
 
 - searchable
+- wishlist
 - ISBN integration
 - multiple media (dvd, video games, cd, etc.)
 - app for scanning barcodes (android poc - could also lead to monetization)
