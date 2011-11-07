@@ -1,23 +1,16 @@
 # Django settings for mysite project.
 
-DEBUG = True
+DEBUG = True 
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('Andrew Phoenix', 'andrew.phoenix@gmail.com'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/aphoenix/homelib/db/sqlitedb',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
+    'default': { 'ENGINE': 'django.db.backends.sqlite3', 'NAME': '/home/aphoenix/homelib/db/sqlitedb' }
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -27,7 +20,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Toronto'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -78,6 +71,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'codebase.urls'
 
 TEMPLATE_DIRS = (
+    "/home/aphoenix/homelib/templates/"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

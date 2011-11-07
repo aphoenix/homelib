@@ -1,7 +1,6 @@
-from django.conf.urls.defaults import 
+from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('catalog.views',
-    url(r'^$', 'catalog.views.index'),
-    url(r'^/book/(?P<book_id>\d+)/$', 'catalog.views.books'),
-    url(r'^/borrower/(?P<borrower_id>\dA+)/$', 'catalog.views.borrower'),
-)
+    url(r'^$', 'index'),
+    url(r'^(?P<book_id>\d+)/$', 'detail'),
+    )
