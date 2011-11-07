@@ -37,12 +37,10 @@ class Loan(models.Model):
 
     """ Loan Model - matching borrowers to books """
 
-    book = models.ForeignKey(Book)
+    book = models.ForeignKey(Book, unique=True) # This is temporary, but forces one borrower at a time.
     borrower = models.ForeignKey(Borrower)
     date_lent = models.DateField(default=datetime.now())
-    returned = models.BooleanField(default=False)
+    #returned = models.BooleanField(default=False)
 
     def __unicode__(self):
         return '{0}'.format(self.book)
-    def return_it(self):
-        return self.returned==True
