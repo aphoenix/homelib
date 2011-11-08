@@ -5,7 +5,7 @@ urlpatterns = patterns('catalog.views',
     url(r'^$', 'index'),
     url(r'^book/$', 'library'),
     url(r'^book/(?P<book_id>\d+)/$', 'book'),
-    url(r'^book/(?P<book_id>\d+)/request/$', 'signout'),
+    url(r'^book/(?P<book_id>\d+)/signout/$', 'signout'),
     url(r'^borrower/(?P<borrower_id>\d+)/$', 'borrower'),
     )
 

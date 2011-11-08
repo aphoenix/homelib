@@ -12,7 +12,7 @@
             Do you want to borrow this book? Fill out the form below. I won't
             send you spam (your email isn't even required).
         </p>
-        <form action="/book/{{book.id}}/request/" method="post">
+        <form action="/book/{{book.id}}/signout/" method="post">
         {% csrf_token %}
             <label for="borrowername">Your Name:</label>
             <input type="text" name="name" length="100" id="borrowername" value="somebody"/><br/>
