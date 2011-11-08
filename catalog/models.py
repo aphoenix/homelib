@@ -9,7 +9,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     genre = models.CharField(max_length=20, blank=True)
-    #isbn = models.IntegerField()
+    #isbn = models.()
     
     # This will likely change somewhat based on what kind of 
     # information it's decided to keep on books. Also, hook
@@ -26,7 +26,7 @@ class Borrower(models.Model):
 
     """ Borrower Model - who is taking the book """
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     email = models.EmailField(max_length=255, blank=True)
 
     def __unicode__(self):
