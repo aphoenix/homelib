@@ -7,18 +7,7 @@ from catalog.models import Book, Borrower, Loan
 
 def index(request):
     latest_book_list = Book.objects.all().order_by('title')[:3]
-    return render_to_response('catalog/index.html', { 'latest_book_list': latest_book_list, })
-
-
-def book(request, book_id):
-    b = get_object_or_404(Book, pk=book_id)
-    return render_to_response('catalog/book.html', {'book': b},
-                                context_instance=RequestContext(request))
-
-
-def borrower(request, borrower_id):
-    b = get_object_or_404(Borrower, pk=borrower_id)
-    return render_to_response('catalog/borrower.html', {'borrower': b})
+    return render_to_response('catalog/index.html', { 'latest_book_list' : latest_book_list, })
 
 
 def signout(request, book_id):
@@ -40,8 +29,3 @@ def signout(request, book_id):
             'book': b,
             'error_message': 'That book is already signed out.'
             }, context_instance=RequestContext(request))
-
-
-def library(request):
-    book_list = Book.objects.all().order_by('title')
-    return render_to_response('catalog/index.html', { 'latest_book_list': book_list, })
