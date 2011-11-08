@@ -1,12 +1,10 @@
 {% extends "catalog/base.html" %}
 
-{% block title %}
-    
 
 {% block content %}
-    {% if latest_book_list %}
+    {% if book_list %}
         <ul>
-        {% for book in latest_book_list %}
+        {% for book in book_list %}
             <li><a href="book/{{ book.id }}/">{{ book.title }}</a></li>
         {% endfor %}
         </ul>

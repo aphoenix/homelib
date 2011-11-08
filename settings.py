@@ -10,7 +10,10 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': { 'ENGINE': 'django.db.backends.sqlite3', 'NAME': '/home/aphoenix/homelib/db/sqlitedb' }
+    'default': { 
+        'ENGINE': 'django.db.backends.sqlite3', 
+        'NAME': '/home/aphoenix/homelib/db/sqlitedb' 
+    }
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -36,6 +39,18 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+
+# Add a static URL
+STATIC_ROOT = ''
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    '/home/aphoenix/homelib/codebase/media',
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = '/home/aphoenix/homelib/codebase/media'
@@ -43,12 +58,12 @@ MEDIA_ROOT = '/home/aphoenix/homelib/codebase/media'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/admin/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'zp$p!2%09k-2%9%=_m^cy4-p1uhc0c#hp_rs()fw0qpiewfv@w'
@@ -84,6 +99,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'catalog'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

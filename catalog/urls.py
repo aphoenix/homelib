@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     url(r'^$', 'catalog.views.index'),
     url(r'^book/$',
         ListView.as_view(
-            queryset=Book.objects.order_by('title'),
+            queryset=Book.objects.order_by('genre'),
             template_name='catalog/library.html')),
     url(r'^book/(?P<pk>\d+)/$', 
         DetailView.as_view(
@@ -20,7 +20,7 @@ urlpatterns = patterns('',
             template_name='catalog/everyone.html')),
     url(r'^borrower/(?P<pk>\d+)/$', 
         DetailView.as_view(
-            model=Book,
+            model=Borrower,
             template_name='catalog/borrower.html'))
     )
 

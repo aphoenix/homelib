@@ -6,7 +6,7 @@ from catalog.models import Book, Borrower, Loan
 
 
 def index(request):
-    latest_book_list = Book.objects.all().order_by('title')[:3]
+    latest_book_list = Book.objects.all().order_by('title')[:6]
     return render_to_response('catalog/index.html', { 'latest_book_list' : latest_book_list, })
 
 
