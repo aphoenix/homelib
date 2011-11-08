@@ -1,0 +1,14 @@
+{% extends base.html %}
+
+
+{% block content %}
+    {% if latest_book_list %}
+        <ul>
+        {% for book in latest_book_list %}
+            <li><a href="book/{{ book.id }}/">{{ book.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ain't nothing.</p>
+    {% endif %}
+{% endblock %}
