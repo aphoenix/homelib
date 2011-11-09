@@ -4,13 +4,13 @@
 {% block content %}
     <div class="book">
         <h2>{{book.title}}</h2>
-        <p class="author">by <em>{{book.author}}</em></p>
+        <p class="author">by {{book.author}}</p>
         <p class="genre">Genre: <strong>{{book.genre}}</strong></p>
     </div>
     <div class="request">
         <p>
             Do you want to borrow this book? Fill out the form below. I won't
-            send you spam (your email isn't even required).
+            send you spam.  (your email isn't even required).
         </p>
         <form action="/book/{{book.id}}/signout/" method="post">
         {% csrf_token %}
@@ -18,7 +18,7 @@
             <input type="text" name="name" length="100" id="borrowername" value="somebody"/><br/>
             <label for="borroweremail">Your Email:</label>
             <input type="text" name="email" length="255" id="borroweremail" value="your@email.com"/><br/>
-            <input type="submit" value="Make Request"/>
+            <input class="submit" type="submit" value="Make Request"/>
         </form>
         {{error_message}}
     </div>
