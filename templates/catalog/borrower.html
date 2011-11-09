@@ -1,4 +1,4 @@
-{% extends "catalog/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}
     {{borrower.name}}
@@ -6,5 +6,17 @@
 
 {% block content %}
     <h2>{{borrower.name}}</h2>
-    <p>This is a good place to put a list of borrowed materials.</p>
+    {% if loan_list %}
+        <section>
+        <h3>Books Recently Loaned</h3>
+        <ul>
+        {% for loan in loan_list %}
+            <li>
+                <span class="title"><a href="book/{{ loan.book.id }}">{{ loan.book }}</a></span>
+                <span class="author">by {{loan.book.author }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+        </section>
+    {% endif %}
 {% endblock %}

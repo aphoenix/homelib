@@ -1,4 +1,4 @@
-{% extends "catalog/base.html" %}
+{% extends "base.html" %}
 
 
 {% block content %}
@@ -6,6 +6,7 @@
         <h2>{{book.title}}</h2>
         <p class="author">by {{book.author}}</p>
         <p class="genre">Genre: <strong>{{book.genre}}</strong></p>
+        <p> This book is {{ loan }}.</p>
     </div>
     <div class="request">
         <p>
@@ -15,9 +16,9 @@
         <form action="/book/{{book.id}}/signout/" method="post">
         {% csrf_token %}
             <label for="borrowername">Your Name:</label>
-            <input type="text" name="name" length="100" id="borrowername" value="somebody"/><br/>
+            <input type="text" name="name" length="100" id="borrowername"/><br/>
             <label for="borroweremail">Your Email:</label>
-            <input type="text" name="email" length="255" id="borroweremail" value="your@email.com"/><br/>
+            <input type="text" name="email" length="255" id="borroweremail"/><br/>
             <input class="submit" type="submit" value="Make Request"/>
         </form>
         {{error_message}}
