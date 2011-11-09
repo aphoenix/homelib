@@ -18,7 +18,7 @@ def index(request):
 
 def signout(request, book_id):
     b = get_object_or_404(Book, pk=book_id)
-    try:
+    try: #this input certainly requires some data sanitization
         r = Borrower.objects.get(name=request.POST['name'])
     except (KeyError, Borrower.DoesNotExist):
         new = Borrower(name=request.POST['name'], email=request.POST['email'])

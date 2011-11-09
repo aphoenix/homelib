@@ -1,26 +1,62 @@
 from django.conf.urls.defaults import *
 from django.views.generic import DetailView, ListView
-from catalog.models import Book, Borrower
+from catalog.models import Book, Borrower, Loan
 
+
+# Provide the in / out information. Not optimal, mostly just
+# playing with subclasses of a standard view.
+class BookDetailView(DetailView):
+     
+    context_object_name = "book"
+    model = Book
+
+    def get_context_data(self, **kwargs):
+        context = super(BookDetailView, self).get_context_data(**kwargs)
+        try:
+            context['loan'] = Loan.objects.get(book=self.get_object())
+        except (KeyError, Loan.DoesNotExist):
+            context['loan'] = 'in'
+        else:
+            context['loan'] = 'out'
+        return context
+
+class BorrowerDetailView(DetailView):
+    
+    context_object_name = "borrower"
+    model = Borrower
+
+    def get_context_data(self, **kwargs):
+        context = super(BorrowerDetailView, self).get_context_data(**kwargs)
+        try:
+            context['loan_list'] = Loan.objects.filter(borrower=self.get_object())
+        except (KeyError, Loan.DoesNotExist):
+            context['loan_list'] = ''
+        return context 
 
 urlpatterns = patterns('',
     url(r'^$', 'catalog.views.index'),
+
     url(r'^book/$',
         ListView.as_view(
-            queryset=Book.objects.order_by('title'),
-            template_name='catalog/library.html')),
+            queryset = Book.objects.order_by('title'),
+            template_name = 'catalog/library.html')),
+    
     url(r'^book/(?P<pk>\d+)/$', 
-        DetailView.as_view(
-            model=Book,
-            template_name='catalog/book.html')),
-    url(r'^book/(?P<pk>\d+)/signout/$', 'catalog.views.signout'),
+        BookDetailView.as_view(
+            template_name = 'catalog/book.html',
+        )),
+    
+    url(r'^book/(?P<book_id>\d+)/signout/$', 'catalog.views.signout'),
+    
     url(r'^borrower/$',
         ListView.as_view(
-            queryset=Borrower.objects.order_by('name'),
-            template_name='catalog/everyone.html')),
+            queryset = Borrower.objects.order_by('name'),
+            template_name = 'catalog/everyone.html'
+        )),
+    
     url(r'^borrower/(?P<pk>\d+)/$', 
-        DetailView.as_view(
-            model=Borrower,
-            template_name='catalog/borrower.html'))
+        BorrowerDetailView.as_view(
+            template_name = 'catalog/borrower.html'
+        ))
     )
 
