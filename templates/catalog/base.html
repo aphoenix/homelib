@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <title>{% block title %}Home{% endblock %} | HomeLib</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}style.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- this should really have STATIC_URL instead of hard coded /static/ but
+         for some reason, it wouldn't pick it up for the index.html. -->
     <link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Mate' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
@@ -18,13 +20,13 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/book/">Full Library</a></li>
-        <li><a href="/borrower/">Current Members</a></li>
+        <li><a href="/borrower/">Borrowers</a></li>
     </ul>
 </div>
 <div id="content">
     {% block content %}You should be seeing recent activity.{% endblock %}
 </div>
 <div id="footer">
-    <p>HomeLib was filmed before a live studio audience.</p>
+    <p>HomeLib was filmed before a live studio audience<a href="/admin/">.</a></p>
 </div>
 

@@ -6,13 +6,41 @@
     
 
 {% block content %}
+    <h2>Here, take my stuff.</h2>
+    <p>All this is just here to make sure that you give it back.</p>
     {% if latest_book_list %}
+        <section>
+        <h3>Books Recently Added</h3>
         <ul>
         {% for book in latest_book_list %}
-            <li><a href="book/{{ book.id }}/">{{ book.title }}</a></li>
+            <li>
+                <span class="title"><a href="book/{{ book.id }}/">{{ book.title }}</a></span>
+                <span class="author">{{ book.author }}</span>
+            </li>
         {% endfor %}
         </ul>
-    {% else %}
-        <p>Ain't nothing.</p>
+        </section>
+    {% endif %}
+
+    {% if latest_loan_list %}
+        <section>
+        <h3>Books Recently Loaned</h3>
+        <ul>
+        {% for loan in latest_loan_list %}
+            <li>
+                <span class="title"><a href="book/{{ loan.book.id }}">{{ loan.book }}</a> by {{loan.book.author }}</span>
+                <span class="borrower">to <a href="borrower/{{loan.borrower.id }}">{{ loan.borrower }}</a></span>
+            </li>
+        {% endfor %}
+        </section>
+    {% endif %}
+    {% if latest_borrower_list %}
+        <section>
+        <h3>People Who have Accosted me for Books</h3>
+        <ul>
+        {% for borrower in latest_borrower_list %}
+            <li><a href="borrower/{{ borrower.id }}/">{{ borrower.name }}</a></li>
+        {% endfor %}
+        </section>
     {% endif %}
 {% endblock %}

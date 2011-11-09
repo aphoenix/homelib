@@ -6,13 +6,12 @@
 
 {% block content %}
     <h2>The Entire Library</h2>
-    <p>Books are arranged alphabetically by author.</p>
-    <p>This place is a good candidate for search.</p>
+    <p>This place is a good candidate for search. C-F works for now.</p>
     {% if book_list %}
-        <ul class="full">
+        <ul>
         {% for book in book_list %}
             <li>
-                <span class="title"> <a href="book/{{ book.id }}/">{{ book.title }}</a></span>
+                <span class="title"><a href="{{ book.id }}/">{{ book.title }}</a></span>
                 <span class="author">{{ book.author }}</span>
             </li>
         {% endfor %}

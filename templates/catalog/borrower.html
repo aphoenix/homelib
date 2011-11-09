@@ -1,1 +1,10 @@
-<h1>{{borrower.name}}</h1>
+{% extends "catalog/base.html" %}
+
+{% block title %}
+    {{borrower.name}}
+{% endblock %}
+
+{% block content %}
+    <h2>{{borrower.name}}</h2>
+    <p>This is a good place to put a list of borrowed materials.</p>
+{% endblock %}

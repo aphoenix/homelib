@@ -87,12 +87,13 @@ h1 {
     color:#999;
     padding:40px 0 0 0;
     }
-h2 {
-    font-size:24px;
+h2, h3 {
     color:#333;
     font-style:italic;
-    padding:0 0 10px;    
+    padding:5px 0;    
     }
+h2 { font-size:24px; }
+h3 { font-size:19px; }
 .book {
     padding:0 0 20px;
     }
@@ -119,17 +120,19 @@ h2 {
     float:left;
     display:block;
     }
-.author {
+.author, .borrower {
     display:block;
     float:right;
     }
-.full li {
+.book .author {
+    display:inline;
+    float:none;
+    }
+#content li {
     clear:both;
     padding:5px 0;
     border-bottom:1px solid #ccc;
     }
-.full {
-    margin-top:25px;
+section {
+    padding:20px 0 30px;
     }
-
-
