@@ -45,6 +45,7 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     '/home/aphoenix/homelib/media',
+    '/home/aphoenix/Django-1.3.1/django/contrib/admin/media/'
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

@@ -13,11 +13,29 @@ other people to see if I already own a book.
 This is made for Django 1.3.1 and Python 2.5 < x < 3. It uses sqlite. A sample
 database will be available.
 
-## Items Instead of Books
+
+## Notes
+
+This was mostly as a learning experience in Django, as I am more comfortable
+using Bottle. This was fun and interesting - I had explored Django a year or
+two ago and moved on to other frameworks, but I think this one has a lot of
+potential.
+
+I think I touched on everything in the walkthrough. I also did a bit of work
+in templating. The design is silly, but functional enough. I enjoyed the mix
+and match vibe I got from extending the standard DetailView class; that was a
+last minute addition.
 
 Current support is only for books. This was a conscious choice to simplify the
 development of the site, in an effort to release early and often. A certain
 amount of refactoring is to be expected before the next version.
+
+
+## Static Files and The Admin Interface
+
+I had some problems with Static files and the admin site. I think it is due to
+the fact that I upgraded from an older version of Django in the middle of
+working on this project.
 
 
 ## Users
@@ -51,3 +69,7 @@ from your catalog. To this end, I am examining django-piston to create a REST
 API that the app could use to interact with django, and ZXing to handle the
 actual scanning and interpreting of the barcodes. Proof of concept scanner is
 easy to set up.
+
+I think this is where success would happen. A lot of people have smart phones
+and being able to do a signout in 10 seconds without using a computer is a good
+goal to work towards.
