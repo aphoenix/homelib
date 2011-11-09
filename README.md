@@ -10,8 +10,10 @@ but because I have many (thousands) I frequently receive doubles. This home
 catalog will allow me to keep track of where my books are and will allow
 other people to see if I already own a book.
 
+This is made for Django 1.3.1 and Python 2.5 < x < 3. It uses sqlite. A sample
+database will be available.
 
-## Items
+## Items Instead of Books
 
 Current support is only for books. This was a conscious choice to simplify the
 development of the site, in an effort to release early and often. A certain
@@ -22,8 +24,8 @@ amount of refactoring is to be expected before the next version.
 
 I made an active choice not to use the built in userbase as borrowers. The 
 reason for this is that at this point, this is not a particularly social site.
-I am not expecting the borrowers of items to want to log in - i.e. this is more
-for my benefit than it is for others.
+I am not expecting the borrowers of items to want to log in. I expect to use
+both the front end and the back end exclusively myself.
 
 
 ## Roadmap
