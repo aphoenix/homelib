@@ -6,8 +6,14 @@ from catalog.models import Book, Borrower, Loan
 
 
 def index(request):
-    latest_book_list = Book.objects.all().order_by('title')[:6]
-    return render_to_response('catalog/index.html', { 'latest_book_list' : latest_book_list, })
+    latest_book_list = Book.objects.all().order_by('title')[:5]
+    latest_borrower_list = Borrower.objects.all().order_by('name')[:5]
+    latest_loan_list = Loan.objects.all()[:5]
+    return render_to_response('catalog/index.html', { 
+        'latest_book_list' : latest_book_list, 
+        'latest_borrower_list' : latest_borrower_list,
+        'latest_loan_list' : latest_loan_list
+    })
 
 
 def signout(request, book_id):
