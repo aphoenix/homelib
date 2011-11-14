@@ -3,10 +3,16 @@ from django.views.generic import DetailView, ListView
 from catalog.models import Book, Borrower, Loan
 
 
-# Provide the in / out information. Not optimal, mostly just
-# playing with subclasses of a standard view.
+# Provide the in / out information. Not optimal, mostly just playing with 
+# subclasses of a standard view. Ideally, this would be one class extension 
+# that would take an argument and work for either Books or Borrowers, but they
+# have different relations to loans (1:1 Many:1).
+
+# That *should* be fixed in a patch soon, which will also help us keep the 
+# history of loans.
+
 class BookDetailView(DetailView):
-     
+    ''' Mix and Match model details: Book info also shows some loan info.'''     
     context_object_name = "book"
     model = Book
 
@@ -21,7 +27,7 @@ class BookDetailView(DetailView):
         return context
 
 class BorrowerDetailView(DetailView):
-    
+    ''' Mix and Match model details: Borrower info also shows some loan info.'''
     context_object_name = "borrower"
     model = Borrower
 
