@@ -15,9 +15,9 @@ class BookDetailView(DetailView):
         try:
             context['loan'] = Loan.objects.get(book=self.get_object())
         except (KeyError, Loan.DoesNotExist):
-            context['loan'] = 'in'
+            context['loan'] = False
         else:
-            context['loan'] = 'out'
+            context['loan'] = True
         return context
 
 class BorrowerDetailView(DetailView):
@@ -39,7 +39,8 @@ urlpatterns = patterns('',
     url(r'^book/$',
         ListView.as_view(
             queryset = Book.objects.order_by('title'),
-            template_name = 'catalog/library.html')),
+            template_name = 'catalog/library.html'
+        )),
     
     url(r'^book/(?P<pk>\d+)/$', 
         BookDetailView.as_view(
@@ -57,6 +58,11 @@ urlpatterns = patterns('',
     url(r'^borrower/(?P<pk>\d+)/$', 
         BorrowerDetailView.as_view(
             template_name = 'catalog/borrower.html'
-        ))
+        )),
+    url(r'^loan/$',
+        ListView.as_view(
+            queryset = Loan.objects.order_by('book'),
+            template_name = 'catalog/loans.html'
+        )),
     )
 
