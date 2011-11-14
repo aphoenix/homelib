@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Get Back All The Things!
+{% endblock %}
+
+{% block content %}
+    <h2>Everything that's Out</h2>
+    {% if loan_list %}    
+        <ul>
+        {% for loan in loan_list %}
+            <li>
+                <span class="title"><a href="/book/{{ loan.book.id }}">{{ loan.book }}</a> by {{loan.book.author }}</span>
+                <span class="borrower">to <a href="/borrower/{{loan.borrower.id }}">{{ loan.borrower }}</a></span>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nothing is out. You did all this work for nothing.</p>
+    {% endif %}
+{% endblock %}
