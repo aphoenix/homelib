@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
+{% block title %}
+    The People
+{% endblock %}
 
 {% block content %}
+    <h2>Approved Borrowers</h2>
     {% if borrower_list %}
         <ul>
         {% for borrower in borrower_list %}
@@ -9,6 +13,6 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>Ain't nothing.</p>
+        <p>You currently have no approved borrowers.</p>
     {% endif %}
 {% endblock %}

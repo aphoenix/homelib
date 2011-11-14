@@ -49,6 +49,11 @@ p, ul, li {padding:7px 0;}
 a {color:#349934;text-decoration:none;}
 a:hover {text-decoration:underline;}
 
+strong {
+    font-family:'Mate', serif;
+    color:#349934;
+    }
+
 h1 { 
     font-family:'Mate SC', serif;
     font-size:36px;
