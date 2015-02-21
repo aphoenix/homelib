@@ -1,9 +1,5 @@
 # Loaning Library
 
-## Origin added?
-
-Is the origin added? Who knows.
-
 
 ## Introduction
 
