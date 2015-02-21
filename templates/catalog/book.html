@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="book">
+        <h2>{{book.title}}</h2>
+        <p class="author">by {{book.author}}</p>
+        <p class="genre">Genre: <strong>{{book.genre}}</strong></p>
+        <p> This book is <strong>{%if loan %}out{% else %}in{% endif %}</strong>.</p>
+    </div>
+    <div class="request">
+        <h3>Sign this book out</h3>
+        {%if loan %}
+            <p>Yeah, it's still out. See up there wher it says 'out'?</p>
+        {% else %}
+            <form action="/book/{{book.id}}/signout/" method="post">
+            {% csrf_token %}
+                <label for="borrowername">Full Name:</label>
+                <input type="text" name="name" length="100" id="borrowername"/><br/>
+                <label for="borroweremail">Email:</label>
+                <input type="text" name="email" length="255" id="borroweremail"/><br/>
+                <input class="submit" type="submit" value="Make Request"/>
+            </form>
+        {% endif %}
+        {{error_message}}
+    </div>
+
+{% endblock %}

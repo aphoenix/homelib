@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Home{% endblock %} | HomeLib</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Mate' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <meta charset="utf-8"> <!-- is this perverse with all the unicode? -->
+</head>
+<body>
+<div id="header">
+    <h1>HomeLib</h1>
+    <p class="motto">- Lend Wisely</p>
+</div>
+<div id="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/book/">Full Library</a></li>
+        <li><a href="/borrower/">Borrowers</a></li>
+        <li><a href="/loan/">All Loans</a></li>
+    </ul>
+</div>
+<div id="content">
+    {% block content %}You should be seeing recent activity.{% endblock %}
+</div>
+<div id="footer">
+    <p>HomeLib was filmed before a live studio audience<a href="/admin/">.</a></p>
+</div>
+
