@@ -1,0 +1,144 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+}
+
+ul, ol {
+    padding-left:25px;
+    }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+html {background:url(square_bg.png) repeat;}
+body {
+        font-family: 'Ubuntu', sans;
+        font-size:16px;
+        color:#666;
+        width:800px;
+        margin:0 auto;
+        background:rgba(255,255,255,0.6);
+        padding:40px;
+        line-height: 1.3;
+}
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+
+p, ul, li {padding:7px 0;}
+
+
+a {color:#349934;text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+strong {
+    font-family:'Mate', serif;
+    color:#349934;
+    }
+
+h1 { 
+    font-family:'Mate SC', serif;
+    font-size:36px;
+    color:#349934;
+    float:left;
+    }
+
+.motto {
+    font-family:'Mate', serif;
+    font-size:26px;
+    padding:10px 0 0;     
+    color:#999;
+    text-indent:10px;
+    display:block;
+    }
+#nav {
+    clear:both;
+    }
+#nav ul {
+    list-style:none;
+    }
+#nav ul li {
+    float:left;
+    padding-right:30px;
+    }
+#nav ul li a {
+    font-size:18px;
+    }
+#content {
+    clear:both;
+    padding:20px 0 0 0;
+    }
+#footer {
+    font-size:12px;
+    text-align:center;
+    color:#999;
+    padding:40px 0 0 0;
+    }
+h2, h3 {
+    color:#333;
+    font-style:italic;
+    padding:5px 0;    
+    }
+h2 { font-size:24px; }
+h3 { font-size:19px; }
+.book {
+    padding:0 0 20px;
+    }
+.request {
+    width:500px;
+    border:1px dashed #999;
+    background-color:rgba(200,245,200,0.8);
+    color:#333;
+    -webkit-border-radius:17px; /* for fun */
+    }
+.request > *  {
+    width:420px;
+    margin:20px auto;
+    }
+
+.request label {
+    display:block;
+    float:left;
+    width:96px;
+    }
+.request .submit {
+    margin:5px 0 0 96px;
+    }
+.title {
+    float:left;
+    display:block;
+    }
+.author, .borrower {
+    display:block;
+    float:right;
+    }
+.book .author {
+    display:inline;
+    float:none;
+    }
+#content li {
+    clear:both;
+    padding:5px 0;
+    border-bottom:1px solid #ccc;
+    }
+section {
+    padding:20px 0 30px;
+    }

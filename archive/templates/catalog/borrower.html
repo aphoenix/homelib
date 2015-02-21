@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{borrower.name}}
+{% endblock %}
+
+{% block content %}
+    <h2>{{borrower.name}}</h2>
+    {% if loan_list %}
+        <section>
+        <h3>Books Recently Loaned</h3>
+        <ul>
+        {% for loan in loan_list %}
+            <li>
+                <span class="title"><a href="/book/{{ loan.book.id }}">{{ loan.book }}</a></span>
+                <span class="author">by {{loan.book.author }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+        </section>
+    {% else %}
+        <h3>No books currently on loan.</h3>
+    {% endif %}
+{% endblock %}
